@@ -32,9 +32,9 @@ const Home = () => {
             data-aos="fade-up"
             className="relative z-10 px-6 justify-center h-full text-white flex flex-col items-center gap-5 text-center md:max-w-[60rem] mx-auto"
           >
-            <div className="rounded-text-box border-white/70 font-medium">
+            {/* <div className="rounded-text-box border-white/70 font-medium">
               IT Services
-            </div>
+            </div> */}
             <h1 className="heading-1">
               Unlock the Power of{" "}
               <span className="text-primary">Technology</span> to Move Your

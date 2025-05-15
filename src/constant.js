@@ -115,8 +115,12 @@ export const companyDetails = {
   phone: "+91-8299304970",
   whatsapp: "918299304970",
   whatsappbox: "918299304970",
-  email: "abc@xya.com",
+  email: "mpranavprem@gmail.com",
+  // email: "contact@nispatechnologies.com",
   address: "1046 SBI Colony, Ratan Lal Nagar, Kanpur",
+  linkedin: "https://www.linkedin.com/in/gopi-awasthi/",
+  instagram: "https://www.instagram.com/thegopiawasthii?igsh=ejlzajZhd3QzZWsx",
+  facebook: "https://www.facebook.com/gopi.awasthi.792",
 };
 
 // website routes
@@ -136,11 +140,11 @@ export const routes = [
     path: "/about-us",
     component: <AboutUs />,
   },
-  {
-    name: "Blogs",
-    path: "",
-    component: <ContactUs />,
-  },
+  // {
+  //   name: "Blogs",
+  //   path: "",
+  //   component: <ContactUs />,
+  // },
   {
     name: "Contact Us",
     path: "/contact-us",
@@ -180,7 +184,6 @@ export const faqs = [
       "We provide a wide range of AI solutions, including predictive analytics, natural language processing, computer vision, and custom AI model development tailored to your business needs.",
   },
 ];
-
 
 // Web Development Services
 export const webDevelopmentServices = [

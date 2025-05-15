@@ -118,8 +118,14 @@ const OurServices = ({ length }) => {
                 key={service.id}
                 className=" rounded-lg p-[1px]  cursor-pointer h-full "
               >
-                <div className="group hover:scale-105 h-full   rounded-lg bg-backgro-gradient p-[1px] transition-all  duration-500">
-                  <div className="rounded-lg bg-white min-h-[31rem] sm:min-h-[23.25rem] hover:bg-custom-gradient p-5 flex flex-col justify-between items-start text-start h-full gap-4">
+                <div className="group hover:scale-105 h-full   rounded-lg bg-backgro-gradient transition-all  duration-500 relative overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full absolute opacity-25 top-0 left-0 h-full object-cover rounded-lg"
+                  />
+                  <div className="absolute inset-0 bg-black/50 transition-opacity duration-300"></div>
+                  <div className="relative z-[1] rounded-lg min-h-[31rem] sm:min-h-[23.25rem] hover:bg-custom-gradient p-5 flex flex-col justify-between items-start text-start h-full gap-4">
                     <div className="flex flex-col gap-3">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100 text-orange-600 group-hover:bg-orange-600 group-hover:text-white  transition-colors duration-300">
@@ -127,14 +133,14 @@ const OurServices = ({ length }) => {
                           {service.img}
                         </div>
                       </div>
-                      <h5 className="font-semibold text-primary text-xl font-raleway">
+                      <h5 className="font-semibold text-white text-xl font-raleway">
                         {service.title}
                       </h5>
-                      <p className="desc text-primarytextcolor">
+                      <p className="desc text-white">
                         {service.desc}
                       </p>
                     </div>
-                    <button className="font-inter mt-1 flex items-center gap-3 text-primary  hover:text-gray-700  transition-all duration-300 underline underline-offset-4">
+                    <button className="font-inter mt-1 flex items-center gap-3 text-orange-500  hover:text-primary  transition-all duration-300 underline underline-offset-4">
                       Learn More <PiCaretDoubleRightBold />
                     </button>
                   </div>

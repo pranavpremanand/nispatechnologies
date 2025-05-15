@@ -38,8 +38,15 @@ const ServiceItems = () => {
               data-aos="fade-up"
               className=" rounded-lg p-[1px] cursor-pointer"
             >
-              <div className="   group rounded-lg bg-backgro-gradient  hover:scale-105 shadow-2xl hover:shadow-primary/10 p-[1px] transition-all h-full duration-500 overflow-hidden">
-                <div className="rounded-lg bg-white hover:bg-custom-gradient p-5 flex flex-col justify-between items-start text-start h-full gap-4">
+              <div className="   group rounded-lg bg-backgro-gradient  hover:scale-105 shadow-2xl hover:shadow-primary/10 transition-all h-full duration-500 overflow-hidden relative">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full absolute opacity-25 top-0 left-0 h-full object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-black/50 transition-opacity duration-300"></div>
+
+                <div className="relative z-[1] rounded-lg hover:bg-custom-gradient p-5 flex flex-col justify-between items-start text-start h-full gap-4">
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="flex items-center justify-center w-12 h-12 rounded-full bg-orange-100 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
@@ -47,15 +54,12 @@ const ServiceItems = () => {
                         {service.img}
                       </div>
                     </div>
-                    <h5 className="font-semibold text-xl font-raleway transition-colors duration-300 text-primary">
+                    <h5 className="font-semibold text-xl font-raleway transition-colors duration-300 text-white">
                       {service.title}
                     </h5>
-                    <p className="desc text-primarytextcolor">{service.desc}</p>
+                    <p className="desc text-white">{service.desc}</p>
                   </div>
-                  <button
-                    // onClick={() => handleSelectServiceToShowDetail(service)}
-                    className="font-inter mt-1 flex items-center gap-3 text-primary hover:text-gray-700 transition-all duration-300 underline underline-offset-4"
-                  >
+                  <button className="font-inter mt-1 flex items-center gap-3 text-orange-500  hover:text-primary  transition-all duration-300 underline underline-offset-4">
                     Learn More <PiCaretDoubleRightBold />
                   </button>
                 </div>

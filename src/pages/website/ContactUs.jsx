@@ -35,9 +35,10 @@ const ContactUs = () => {
       to: companyDetails.email,
       subject: "You have a new message from NispaTechnologies",
       body: emailBody,
+      name: "NispaTechnologies",
     };
 
-    await fetch("https://smtp-api-tawny.vercel.app/send-email", {
+    await fetch("https://send-mail-redirect-boostmysites.vercel.app/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -157,7 +158,7 @@ const ContactUs = () => {
                       {...register("phone", {
                         required: "Phone number is required",
                         pattern: {
-                          value: /^[0-9]{10}$/,
+                          value: /^\+?[\d\s\-()]{6,14}\d$/,
                           message: "Invalid phone number",
                         },
                       })}

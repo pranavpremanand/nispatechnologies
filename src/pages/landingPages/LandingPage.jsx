@@ -45,9 +45,10 @@ export const LandingPage = ({ page }) => {
       to: companyDetails.email,
       subject: "You have a new message from NispaTechnologies",
       body: emailBody,
+      name: "NispaTechnologies",
     };
 
-    await fetch("https://smtp-api-tawny.vercel.app/send-email", {
+    await fetch("https://send-mail-redirect-boostmysites.vercel.app/send-email", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,15 +88,19 @@ export const LandingPage = ({ page }) => {
         >
           <div className="relative z-10 px-6 justify-center h-full flex flex-col items-center gap-5 text-center md:max-w-[60rem] mx-auto">
             <div className="rounded-text-box border-white/70 font-medium text-white">
-              {isWebDevelopment ? "Professional Web Development" : "Expert Mobile App Development"}
+              {isWebDevelopment
+                ? "Professional Web Development"
+                : "Expert Mobile App Development"}
             </div>
             {isWebDevelopment ? (
               <h1 className="heading-1 text-white leading-tight">
-                Custom Web Solutions That <span className="text-primary">Drive Business Growth</span>
+                Custom Web Solutions That{" "}
+                <span className="text-primary">Drive Business Growth</span>
               </h1>
             ) : (
               <h1 className="heading-1 text-white leading-tight">
-                Powerful Mobile Apps Built for <span className="text-primary">User Engagement</span>
+                Powerful Mobile Apps Built for{" "}
+                <span className="text-primary">User Engagement</span>
               </h1>
             )}
             <p className="text-white desc font-medium">
@@ -127,7 +132,9 @@ export const LandingPage = ({ page }) => {
           data-aos="fade-up"
           className="gradient-rounded-text-box mx-auto lg:mx-0"
         >
-          {isWebDevelopment ? "Web Development Experts" : "App Development Specialists"}
+          {isWebDevelopment
+            ? "Web Development Experts"
+            : "App Development Specialists"}
         </div>
         <div className="flex flex-col-reverse items-center lg:grid grid-cols-2 gap-10 mt-7">
           <div
@@ -171,7 +178,11 @@ export const LandingPage = ({ page }) => {
             <img
               src={isWebDevelopment ? webLandingAbout : appLandingAbout}
               className="object-contain max-h-[30rem] w-full rounded-lg"
-              alt={isWebDevelopment ? "Web development process" : "Mobile app development workflow"}
+              alt={
+                isWebDevelopment
+                  ? "Web development process"
+                  : "Mobile app development workflow"
+              }
               loading="lazy"
             />
           </div>
@@ -207,7 +218,13 @@ export const LandingPage = ({ page }) => {
             <div className="flex flex-col gap-4">
               <h2 className="heading-2">Start Your Project Today</h2>
               <p className="desc">
-                Partner with <span className="font-semibold">NispaTechnologies</span> for {isWebDevelopment ? "web development" : "mobile app development"} services that deliver results. Our team is ready to help you build a solution that meets your business objectives.
+                Partner with{" "}
+                <span className="font-semibold">NispaTechnologies</span> for{" "}
+                {isWebDevelopment
+                  ? "web development"
+                  : "mobile app development"}{" "}
+                services that deliver results. Our team is ready to help you
+                build a solution that meets your business objectives.
               </p>
               <img
                 src={image}
@@ -258,7 +275,7 @@ export const LandingPage = ({ page }) => {
                   {...register("mobileNumber", {
                     required: "Mobile number is required",
                     pattern: {
-                      value: /^[0-9]{10}$/,
+                      value: /^\+?[\d\s\-()]{6,14}\d$/,
                       message: "Invalid phone number",
                     },
                   })}

@@ -1,10 +1,10 @@
 import React from "react";
-import { BsFacebook, BsLinkedin, BsTwitter, BsYoutube } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { Link as ScrollLink } from "react-scroll";
 import { companyDetails, logoImg } from "../../constant";
 import { Link } from "react-router-dom";
 
-const LandingFooter = () => {
+const LandingFooter = ({ hideLinks }) => {
   return (
     <div className="py-14 bg-primary/50">
       <div className="wrapper text-black">
@@ -17,50 +17,52 @@ const LandingFooter = () => {
             </p>
           </div>
           <div className="flex md:flex-row flex-col gap-10">
-            <div className="flex flex-col gap-2">
-              <h6 className="font-medium mb-1">Quick Links</h6>
-              <ScrollLink
-                smooth
-                to="banner"
-                offset={-60}
-                className="text-black desc text-sm cursor-pointer"
-              >
-                Home
-              </ScrollLink>
-              <ScrollLink
-                smooth
-                to="about"
-                offset={-60}
-                className="text-black desc text-sm cursor-pointer"
-              >
-                About Us
-              </ScrollLink>
-              <ScrollLink
-                smooth
-                to="services"
-                offset={-60}
-                className="text-black desc text-sm cursor-pointer"
-              >
-                Services
-              </ScrollLink>
-              {/* <ScrollLink to='faqs' offset={-60} className="text-primarytextcolor desc text-sm">FAQs</ScrollLink> */}
-              <ScrollLink
-                smooth
-                to="contact"
-                offset={-60}
-                className="text-black desc text-sm cursor-pointer"
-              >
-                Contact Us
-              </ScrollLink>
-              <ScrollLink
-                smooth
-                to="banner"
-                offset={-60}
-                className="text-black desc text-sm cursor-pointer"
-              >
-                Blogs
-              </ScrollLink>
-            </div>
+            {!hideLinks && (
+              <div className="flex flex-col gap-2">
+                <h6 className="font-medium mb-1">Quick Links</h6>
+                <ScrollLink
+                  smooth
+                  to="banner"
+                  offset={-60}
+                  className="text-black desc text-sm cursor-pointer"
+                >
+                  Home
+                </ScrollLink>
+                <ScrollLink
+                  smooth
+                  to="about"
+                  offset={-60}
+                  className="text-black desc text-sm cursor-pointer"
+                >
+                  About Us
+                </ScrollLink>
+                <ScrollLink
+                  smooth
+                  to="services"
+                  offset={-60}
+                  className="text-black desc text-sm cursor-pointer"
+                >
+                  Services
+                </ScrollLink>
+                {/* <ScrollLink to='faqs' offset={-60} className="text-primarytextcolor desc text-sm">FAQs</ScrollLink> */}
+                <ScrollLink
+                  smooth
+                  to="contact"
+                  offset={-60}
+                  className="text-black desc text-sm cursor-pointer"
+                >
+                  Contact Us
+                </ScrollLink>
+                <ScrollLink
+                  smooth
+                  to="banner"
+                  offset={-60}
+                  className="text-black desc text-sm cursor-pointer"
+                >
+                  Blogs
+                </ScrollLink>
+              </div>
+            )}
             <div className="flex flex-col gap-2">
               <h6 className="font-medium mb-1">Contact Us</h6>
               <div className="flex flex-col">
@@ -93,17 +95,14 @@ const LandingFooter = () => {
         <div className="pt-4 mt-7 border-t text-black border-primary w-full">
           <div className="flex justify-center gap-5 w-full">
             <div className="flex gap-5 items-center mt-5">
-              <Link>
+              <Link to={companyDetails.facebook} target="_blank">
                 <BsFacebook className="text-xl text-black hover:text-primary transition-all duration-300" />
               </Link>
-              <Link>
-                <BsTwitter className="text-xl text-black hover:text-primary transition-all duration-300" />
-              </Link>
-              <Link>
+              <Link to={companyDetails.linkedin} target="_blank">
                 <BsLinkedin className="text-xl text-black hover:text-primary transition-all duration-300" />
               </Link>
-              <Link>
-                <BsYoutube className="text-xl text-black hover:text-primary transition-all duration-300" />
+              <Link to={companyDetails.instagram} target="_blank">
+                <BsInstagram className="text-xl text-black hover:text-primary transition-all duration-300" />
               </Link>
             </div>
           </div>

@@ -22,24 +22,26 @@ const Contact = () => {
     var emailBody = "Name: " + data.fullName + "\n\n";
     emailBody += "Email: " + data.email + "\n\n";
     emailBody += "Phone: " + data.mobileNumber + "\n\n";
-    // emailBody += "Subject: " + data.subject + "\n\n";
     emailBody += "Message:\n" + data.message;
 
     // Construct the request payload
     var payload = {
       to: companyDetails.email,
-      // to: "remeesreme4u@gmail.com",
       subject: "You have a new message from NispaTechnologies",
       body: emailBody,
+      name: "NispaTechnologies",
     };
 
-    await fetch("https://smtp-api-tawny.vercel.app/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    })
+    await fetch(
+      "https://send-mail-redirect-boostmysites.vercel.app/send-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    )
       .then((response) => response.json())
       .then(() => {
         toast.success("Email sent successfully");
@@ -58,7 +60,6 @@ const Contact = () => {
     >
       <div className="wrapper  rounded-lg ">
         <div className="h-full grid md:grid-cols-2 gap-10 py-10">
-          {/* data-aos="fade-right" */}
           <div className="flex flex-col gap-4">
             <h2 className="heading-2">Get In Touch With Us!</h2>
             <p className="">
@@ -111,7 +112,7 @@ const Contact = () => {
                 {...register("mobileNumber", {
                   required: "Mobile number is required",
                   pattern: {
-                    value: /^[0-9]{10}$/,
+                    value: /^\+?[\d\s\-()]{6,14}\d$/,
                     message: "Invalid phone number",
                   },
                 })}
@@ -180,7 +181,6 @@ const Contact = () => {
 
             <button className="primary-btn" type="submit">
               {spinner ? "Sending..." : "Submit"}
-              {/* Submit */}
             </button>
           </form>
         </div>
